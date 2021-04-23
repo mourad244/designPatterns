@@ -1,0 +1,7 @@
+1_memento: to implement undo mecanism 
+2_state: methods behaves diffenrently depending on 
+  the tool we are using (using polymorphisme)
+3_iterator:  histroy in web browser (to support the 
+  changement in data structure to store list of urls 
+  ex: just need for 10 last url visited => use String[10])
+  th main class is not affected
