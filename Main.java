@@ -2,8 +2,15 @@ import commandPattern.AddCustomerCommand;
 import commandPattern.BlackAndWhiteCommand;
 import commandPattern.CompositeCommand;
 import commandPattern.CustomerService;
+import commandPattern.editor.BoldCommand;
+import commandPattern.editor.History;
+import commandPattern.editor.HtmlDocument;
+import commandPattern.editor.UndoCommand;
 import commandPattern.fx.Button;
 import commandPattern.fx.ResizeCommand;
+import decorator.CloudStream;
+import decorator.EncryptedCouldStream;
+import decorator.Stream;
 import iterator.BrowseHistory;
 import iterator.Iterator;
 import state.Canvas;
@@ -59,21 +66,49 @@ public class Main {
     // CheckBox
     // TextBox
 
-    // ------1-----------
+    // ------a-----------
     /*
      * var service = new CustomerService(); var command = new
      * AddCustomerCommand(service); var button = new Button(command);
      * button.click();
      */
 
-    // ---------2 composition of commands------------
-    var composite = new CompositeCommand();
-    composite.add(new ResizeCommand());
-    composite.add(new BlackAndWhiteCommand());
+    // ---------b composition of commands------------
+    /*
+     * var composite = new CompositeCommand(); composite.add(new ResizeCommand());
+     * composite.add(new BlackAndWhiteCommand());
+     * 
+     * // call composite.execute();
+     */
 
-    // call
-    composite.execute();
+    // -------c undo command ------------
+    /*
+     * var history = new History(); var document = new HtmlDocument();
+     * document.setContent("Hello World");
+     * 
+     * var boldCommand = new BoldCommand(document, history); boldCommand.execute();
+     * System.out.println(document.getContent());
+     * 
+     * var undoDocument = new UndoCommand(history); undoDocument.execute();
+     * System.out.println(document.getContent());
+     */
+
+    // ------- 6 the decorator ----------
+
+    // ---a using old inheritance
+    /*
+     * var CloudStream = new EncryptedCouldStream();
+     * CloudStream.write("Here's some data");
+     */
+
+    // ------b using the decorator
+    storeCreditCard(new CloudStream());
+    storeCreditCard(new EncryptedCouldStream(new CloudStream()));
+
   }
 
-  //
+  // for the decorator pattern
+  public static void storeCreditCard(Stream stream) {
+    stream.write("1234-1234-1234-1234");
+  }
 }

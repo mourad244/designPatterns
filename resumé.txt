@@ -1,16 +1,16 @@
     1_memento: to implement undo mecanism 
-
+-----------------------------------------------------------
     2_state: methods behaves diffenrently depending on 
     the tool we are using (using polymorphisme) (one state =>canvas)
-    
+-------------------------------------------------------
     3_iterator:  histroy in web browser (to support the
     changement in data structure to store list of urls
     ex: just need for 10 last url visited => use String[10])
     th main class is not affected
-   
+------------------------------------------------------------   
     4_strategy: store the images of the user upload
     (compressing and applying filters) (multiple state => compressor & filter)
-
+---------------------------------------------------------------
     5_command: graphical user framwwork(), when we have a button that
     execute differents jobs depending on where we call it
     decopling the invoker (sender) from the receiver
@@ -19,3 +19,12 @@
     * store them and execute them in the future
     * ability to make undo mecanisms
     - keep track of all commands that have been executed and replay them
+----------------------------------------------------------------
+    6_decorator: add additional behaviours to an object
+    example: company that sells computing service
+    and implement a class that stores data in the cloud    
+    (add encryption before sending data then after a while 
+    compressing data ...and so on and so forth)
+
+    it is about wrapping (decorating) methode by another one 
+    to avoid inheritance
