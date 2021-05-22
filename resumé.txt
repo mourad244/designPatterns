@@ -1,12 +1,21 @@
     1_memento: to implement undo mecanism 
 
     2_state: methods behaves diffenrently depending on 
-the tool we are using (using polymorphisme) (one state =>canvas)
+    the tool we are using (using polymorphisme) (one state =>canvas)
     
-    3_iterator:  histroy in web browser (to support the 
-changement in data structure to store list of urls 
-ex: just need for 10 last url visited => use String[10])
-th main class is not affected
+    3_iterator:  histroy in web browser (to support the
+    changement in data structure to store list of urls
+    ex: just need for 10 last url visited => use String[10])
+    th main class is not affected
    
-    4_strategy: store the images of the user upload 
-(compressing and applying filters) (multiple state => compressor & filter)
+    4_strategy: store the images of the user upload
+    (compressing and applying filters) (multiple state => compressor & filter)
+
+    5_command: graphical user framwwork(), when we have a button that
+    execute differents jobs depending on where we call it
+    decopling the invoker (sender) from the receiver
+    main benefits: 
+    -decoupling the sender from the reciver
+    * store them and execute them in the future
+    * ability to make undo mecanisms
+    - keep track of all commands that have been executed and replay them

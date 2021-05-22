@@ -1,3 +1,9 @@
+import commandPattern.AddCustomerCommand;
+import commandPattern.BlackAndWhiteCommand;
+import commandPattern.CompositeCommand;
+import commandPattern.CustomerService;
+import commandPattern.fx.Button;
+import commandPattern.fx.ResizeCommand;
 import iterator.BrowseHistory;
 import iterator.Iterator;
 import state.Canvas;
@@ -41,8 +47,33 @@ public class Main {
      */
 
     // 4_ ------------strategy pattern-------------------
-    var imageStorage = new ImageStorage(new JpegCompressor(), new BlackAndWhiteFilter());
+    /*
+     * var imageStorage = new ImageStorage(new JpegCompressor(), new
+     * BlackAndWhiteFilter());
+     * 
+     * imageStorage.store("a");
+     */
 
-    imageStorage.store("a");
+    // 5_------------- Command patter -------------------
+    // Button
+    // CheckBox
+    // TextBox
+
+    // ------1-----------
+    /*
+     * var service = new CustomerService(); var command = new
+     * AddCustomerCommand(service); var button = new Button(command);
+     * button.click();
+     */
+
+    // ---------2 composition of commands------------
+    var composite = new CompositeCommand();
+    composite.add(new ResizeCommand());
+    composite.add(new BlackAndWhiteCommand());
+
+    // call
+    composite.execute();
   }
+
+  //
 }
